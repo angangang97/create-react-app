@@ -5,6 +5,7 @@ import './index.css'
 function App() {
 
   // state
+  const [cat, setCat] = useState('')
   const [weight, setWeight] = useState(0)
   const [height, setHeight] = useState(0)
   const [bmi, setBmi] = useState('')
@@ -57,14 +58,18 @@ function App() {
   return (
     <div className="app">
       <div className='container'>
-        <h2 className='center'>BMI Calculator</h2>
+        <h2 className='center'>Dream Studio Size Calculator</h2>
         <form onSubmit={calcBmi}>
           <div>
-            <label>Weight (lbs)</label>
+            <label>Fashion Category</label>
+            <input value={weight} onChange={(e) => setCat(e.target.value)} />
+          </div>
+          <div>
+            <label>Weight (kg)</label>
             <input value={weight} onChange={(e) => setWeight(e.target.value)} />
           </div>
           <div>
-            <label>Height (in)</label>
+            <label>Height (cm)</label>
             <input value={height} onChange={(event) => setHeight(event.target.value)} />
           </div>
           <div>
@@ -74,7 +79,7 @@ function App() {
         </form>
 
         <div className='center'>
-          <h3>Your BMI is: {bmi}</h3>
+          <h3>Your Size is: {bmi}</h3>
           <p>{message}</p>
         </div>
 
